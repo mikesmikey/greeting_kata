@@ -6,6 +6,19 @@ function greet(name) {
     }
     else if (typeof(name) === "object") {
 
+        name.forEach((item)=> {
+            if (item.charAt(0) !== "\"" && item.charAt(item.length-1) !== "\"") {
+                const newStrArray = item.split(", ");
+                if (newStrArray.length > 1) {
+                    delete name[name.indexOf(item)];
+                    name.push(...newStrArray);
+                }
+            } else {
+                newItem = item.replace(/"/g, "");
+                name[name.indexOf(item)] = newItem;
+            }
+        });
+
         const normalName = name.filter((value) => { return value !== value.toUpperCase() });
         var normalStr = "";
 

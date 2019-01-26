@@ -27,7 +27,12 @@ test("given the array mixed with uppercase name [\"Amy\", \"BRIAN\", \"Charlotte
     expect(greet(givenArray)).toBe("Hello, Amy and Charlotte. AND HELLO BRIAN!");
 })
 
-test("given the array mix with name with comma ([\"Bob\", \"Charlie, Dianne\"]) should return \"Hello, Bob, Charlie, and Dianne.\"", ()=> {
+test("given the array mixed with name with comma ([\"Bob\", \"Charlie, Dianne\"]) should return \"Hello, Bob, Charlie, and Dianne.\"", ()=> {
     const givenArray = ["Bob", "Charlie, Dianne"];
     expect(greet(givenArray)).toBe("Hello, Bob, Charlie, and Dianne.");
+})
+
+test("given the array of name mix with comma and double quote ([\"Bob\", \"\"Charlie, Dianne\"\"]) should return \"Hello, Bob and Charlie, Dianne.\"", ()=> {
+    const givenArray = ["Bob", "\"Charlie, Dianne\""];
+    expect(greet(givenArray)).toBe("Hello, Bob and Charlie, Dianne.");
 })
